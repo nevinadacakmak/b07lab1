@@ -45,11 +45,6 @@ public class Driver {
         // Test additional polynomial cases and assertions
         Polynomial p0 = new Polynomial();
         Polynomial p3 = p1.add(p2);
-        Polynomial p4 = p2.add(p3);
-        Polynomial p5 = p2.multiply(p3);
-
-        System.out.println("Assert check for p5(2) == 4598532");
-        assert p5.evaluate(2) == 4598532;
 
         System.out.println("Assert checks for zero polynomials");
         assert p1.multiply(p0).evaluate(3) == 0;

@@ -86,13 +86,14 @@ public class Polynomial {
         return result;
     }
 
-    private Polynomial addTerm(Polynomial poly, double newCoeff, int newExp) {
+    private Polynomial addTerm(Polynomial poly, double newCoeff, int newExp) { //helper
         for (int i = 0; i < poly.exponents.length; i++) 
         {
             if (poly.exponents[i] == newExp) 
             {
                 poly.coefficients[i] += newCoeff;
                 return poly;
+                // If the exponent already exists, add the new coefficient to the existing one
             }
         }
 
@@ -126,7 +127,8 @@ public class Polynomial {
         int[] newExponents = new int[count];
         int index = 0;
 
-        for (int i = 0; i < poly.coefficients.length; i++) {
+        for (int i = 0; i < poly.coefficients.length; i++) 
+        {
             if (poly.coefficients[i] != 0) 
             {
                 newCoefficients[index] = poly.coefficients[i];
@@ -156,7 +158,8 @@ public class Polynomial {
     public Polynomial multiply(Polynomial poly) {
         Polynomial result = new Polynomial();
 
-        for (int i = 0; i < coefficients.length; i++) {
+        for (int i = 0; i < coefficients.length; i++) 
+        {
             for (int j = 0; j < poly.coefficients.length; j++) 
             {
                 result = addTerm(result, coefficients[i] * poly.coefficients[j], exponents[i] + poly.exponents[j]);
@@ -164,6 +167,7 @@ public class Polynomial {
         }
 
         result = simplify(result);
+        
         return result;
     }
 
